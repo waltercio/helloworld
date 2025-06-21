@@ -16,7 +16,9 @@ RUN echo 'server.port=22244' > target/classes/application.properties
 
 RUN ls -ltra target/classes/
 
-RUN chgrp -R 0 target/classes/ && chmod -R g=u target/classes/
+RUN chgrp -R 0 target/classes/application.properties && chmod -R g=u target/classes/application.properties
+
+RUN ls -ltra target/classes/
 
 ENV HOME /tmp
 
