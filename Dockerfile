@@ -18,6 +18,8 @@ WORKDIR /helloworld
 
 COPY . .
 
+RUN echo 'server.port=22244' > target/classes/application.properties
+
 RUN chmod -R u+w /helloworld
 
 RUN chmod -R u+w /helloworld/target
