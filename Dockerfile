@@ -10,13 +10,13 @@ COPY . /helloworld
 
 WORKDIR /helloworld
 
-RUN ls -ltra
-
 RUN mkdir target $$ mkdir target/classes
 
 RUN echo 'server.port=22244' > target/classes/application.properties
 
-RUN chmod 777 target/classes/application.properties
+RUN ls -ltra target/classes/
+
+RUN chgrp -R 0 target/classes/ && chmod -R g=u target/classes/
 
 ENV HOME /tmp
 
