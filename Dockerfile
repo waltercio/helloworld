@@ -16,6 +16,8 @@ RUN mkdir target $$ mkdir target/classes
 
 RUN echo 'server.port=22244' > target/classes/application.properties
 
+RUN chmod 777 target/classes/application.properties
+
 ENV HOME /tmp
 
 RUN mvn -Dmaven.repo.local=/tmp/.m2/repository clean install
