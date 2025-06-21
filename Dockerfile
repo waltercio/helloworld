@@ -32,7 +32,13 @@ ENV HOME=/tmp
 
 RUN mvn -Dmaven.repo.local=/tmp/.m2/repository clean install
 
-RUN whoami
+RUN chown -R 1001680000 /helloworld
+
+RUN chown -R 1001680000 /helloworld/target
+
+RUN chown -R 1001680000 /helloworld/target/classes
+
+RUN chown -R 1001680000 /helloworld/target/classes/application.properties
 
 RUN chmod +wrx entrypoint.sh
 
