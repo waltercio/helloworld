@@ -30,6 +30,10 @@ RUN chown -R $(whoami) /helloworld/target
 
 RUN chown -R $(whoami) /helloworld/target/classes
 
+RUN chmod -R u+w /helloworld/target/classes/application.properties
+
+RUN chown -R $(whoami) /helloworld/target/classes/application.properties
+
 ENV HOME=/tmp
 
 RUN mvn -Dmaven.repo.local=/tmp/.m2/repository clean install
