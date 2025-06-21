@@ -18,17 +18,17 @@ WORKDIR /helloworld
 
 COPY . .
 
-RUN sudo chmod -R u+w /helloworld
+RUN chmod -R u+w /helloworld
 
-RUN sudo chmod -R u+w /helloworld/target
+RUN chmod -R u+w /helloworld/target
 
-RUN sudo chmod -R u+w /helloworld/target/classes
+RUN chmod -R u+w /helloworld/target/classes
 
-RUN sudo chown -R $(whoami) /helloworld
+RUN chown -R $(whoami) /helloworld
 
-RUN sudo chown -R $(whoami) /helloworld/target
+RUN chown -R $(whoami) /helloworld/target
 
-RUN sudo chown -R $(whoami) /helloworld/target/classes
+RUN chown -R $(whoami) /helloworld/target/classes
 
 ENV HOME=/tmp
 
