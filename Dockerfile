@@ -10,7 +10,7 @@ COPY . /helloworld
 
 WORKDIR /helloworld
 
-RUN mkdir target/classes/
+RUN mkdir /helloworld/target/classes/
 
 RUN echo 'server.port=22244' > target/classes/application.properties
 
