@@ -6,9 +6,15 @@ RUN apk add --update wget bash libc6-compat \
     && mkdir -p /helloworld \
     && apk add vim 
 	
+RUN mkdir /tmp
+
+RUN chmod 777 /tmp
+
 COPY . /helloworld
 
 WORKDIR /helloworld
+
+ENV HOME /tmp
 
 RUN mvn install
 RUN chmod +wrx entrypoint.sh
