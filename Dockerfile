@@ -6,19 +6,12 @@ RUN apk add --update wget bash libc6-compat \
     && mkdir -p /helloworld \
     && apk add vim 
 	
-COPY . /helloworld
+RUN mkdir -p /helloworld && \
+    chmod -R 777 /helloworld
 
 WORKDIR /helloworld
 
-RUN mkdir target $$ mkdir target/classes
-
-RUN echo 'server.port=22244' > target/classes/application.properties
-
-RUN ls -ltra target/classes/
-
-RUN chgrp -R 0 target/classes/application.properties && chmod -R g=u target/classes/application.properties && chgrp -R 0 /helloworld && chmod -R g+rw /helloworld
-
-RUN ls -ltra target/classes/
+COPY . .
 
 ENV HOME=/tmp
 
