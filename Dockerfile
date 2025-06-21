@@ -9,6 +9,10 @@ RUN apk add --update wget bash libc6-compat \
 RUN mkdir -p /helloworld && \
     chmod -R 777 /helloworld
 
+RUN mkdir -p /helloworld/target/classes && \
+    chmod -R g+rwX /helloworld && \
+    chown -R 1001:0 /helloworld
+
 WORKDIR /helloworld
 
 COPY . .
