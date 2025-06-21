@@ -16,11 +16,11 @@ RUN echo 'server.port=22244' > target/classes/application.properties
 
 RUN ls -ltra target/classes/
 
-RUN chgrp -R 0 target/classes/application.properties && chmod -R g=u target/classes/application.properties
+RUN chgrp -R 0 target/classes/application.properties && chmod -R g=u target/classes/application.properties && chgrp -R 0 /helloworld && chmod -R g+rw /helloworld
 
 RUN ls -ltra target/classes/
 
-ENV HOME /tmp
+ENV HOME=/tmp
 
 RUN mvn -Dmaven.repo.local=/tmp/.m2/repository clean install
 
