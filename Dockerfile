@@ -12,7 +12,7 @@ WORKDIR /helloworld
 
 RUN ls -ltra
 
-RUN mkdir /helloworld/target/classes/
+RUN mkdir target $$ mkdir target/classes
 
 RUN echo 'server.port=22244' > target/classes/application.properties
 
