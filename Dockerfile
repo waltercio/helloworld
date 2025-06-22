@@ -23,7 +23,7 @@ RUN chmod -R u+w /helloworld/target
 
 RUN chmod -R u+w /helloworld/target/classes
 
-RUN chmod -R u+w /helloworld/target/classes/application.properties
+RUN chmod -R u+w /helloworld/src/main/resources/application.properties
 
 ENV HOME=/tmp
 
@@ -35,7 +35,7 @@ RUN chown -R 1001680000 /helloworld/target
 
 RUN chown -R 1001680000 /helloworld/target/classes
 
-RUN chown -R 1001680000 /helloworld/target/classes/application.properties
+RUN chown -R 1001680000 /helloworld/src/main/resources/application.properties
 
 RUN chmod +wrx entrypoint.sh
 
