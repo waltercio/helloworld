@@ -37,6 +37,8 @@ RUN chown -R 1001680000 /helloworld/target/classes
 
 RUN chown -R 1001680000 /helloworld/src/main/resources/application.properties
 
+RUN whoami
+
 RUN chmod +wrx entrypoint.sh
 
 ENTRYPOINT [ "./entrypoint.sh" ]
