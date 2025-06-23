@@ -6,13 +6,6 @@ RUN apk add --update wget bash libc6-compat \
     && mkdir -p /helloworld \
     && apk add vim 
 	
-RUN mkdir -p /helloworld && \
-    chmod -R 777 /helloworld
-
-RUN mkdir -p /helloworld/target/classes && \
-    chmod -R g+rwX /helloworld && \
-    chown -R 1001:0 /helloworld
-
 WORKDIR /helloworld
 
 COPY . .
