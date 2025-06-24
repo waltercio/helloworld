@@ -12,8 +12,8 @@ WORKDIR /app/helloworld
 #copy files
 COPY . .
 
-RUN chgrp -R 0 /helloworld && \
-    chmod -R g+rwX /helloworld && \
+RUN chgrp -R 0 /app && \
+    chmod -R g+rwX /app && \
     chgrp -R 0 /app/helloworld && \
     chmod -R g+rwX /app/helloworld
 
