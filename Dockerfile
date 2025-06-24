@@ -17,6 +17,9 @@ RUN mkdir -p /helloworld/target && \
     chgrp -R 0 /helloworld && \
     chmod -R g+rwX /helloworld
 
+# Define diretório HOME para o Maven
+ENV HOME=/tmp
+
 ENV MAVEN_OPTS="-Dmaven.repo.local=/tmp/.m2/repository"
 
 RUN chmod +x entrypoint.sh
