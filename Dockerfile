@@ -9,6 +9,10 @@ RUN apk add --update wget bash libc6-compat \
 RUN mkdir -p /helloworld && \
     chmod -R 777 /helloworld
 
+RUN mkdir -p /helloworld/target && chmod -R 777 /helloworld/target
+
+RUN mkdir -p /helloworld/target/classes && chmod -R 777 /helloworld/target/classes
+
 WORKDIR /helloworld
 
 COPY . .
@@ -21,6 +25,8 @@ RUN chmod -R u+w /helloworld/target/classes
 
 RUN chmod -R u+w /helloworld/target/classes/application.properties
 
+RUN chmod -R u+w /helloworld/src/main/resources/application.properties
+
 RUN chown -R 1000650000 /helloworld
 
 RUN chown -R 1000650000 /helloworld/target
@@ -28,6 +34,8 @@ RUN chown -R 1000650000 /helloworld/target
 RUN chown -R 1000650000 /helloworld/target/classes
 
 RUN chown -R 1000650000 /helloworld/target/classes/application.properties
+
+RUN chown -R 1000650000 /helloworld/src/main/resources/application.properties
 
 ENV HOME=/tmp
 
