@@ -13,6 +13,14 @@ WORKDIR /helloworld
 
 COPY . .
 
+RUN chmod -R u+w /helloworld
+
+RUN chmod -R u+w /helloworld/target
+
+RUN chmod -R u+w /helloworld/target/classes
+
+RUN chmod -R u+w /helloworld/src/main/resources/application.properties
+
 RUN chown -R 1000650000 /helloworld
 
 RUN chown -R 1000650000 /helloworld/target
