@@ -23,3 +23,6 @@ ENV HOME=/tmp
 ENV MAVEN_OPTS="-Dmaven.repo.local=/tmp/.m2/repository"
 
 RUN chmod +x entrypoint.sh
+
+# Entrypoint do container
+ENTRYPOINT ["./entrypoint.sh"]
