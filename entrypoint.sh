@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mvn clean spring-boot:run
+mvn spring-boot:run
