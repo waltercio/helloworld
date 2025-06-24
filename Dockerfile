@@ -17,15 +17,15 @@ WORKDIR /helloworld
 
 COPY . .
 
-RUN chmod -R u+w /helloworld
+RUN chmod -R u+w /helloworld && chgrp -R 0 /helloworld
 
-RUN chmod -R u+w /helloworld/target
+RUN chmod -R u+w /helloworld/target && chgrp -R 0 /helloworld/target
 
-RUN chmod -R u+w /helloworld/target/classes
+RUN chmod -R u+w /helloworld/target/classes && chgrp -R 0 /helloworld/target/classes
 
-RUN chmod -R u+w /helloworld/target/classes/application.properties
+RUN chmod -R u+w /helloworld/target/classes/application.properties && chgrp -R 0 /helloworld/target/classes/application.properties
 
-RUN chmod -R u+w /helloworld/src/main/resources/application.properties
+RUN chmod -R u+w /helloworld/src/main/resources/application.properties && chgrp -R 0 /helloworld/src/main/resources/application.properties
 
 RUN chown -R 1000650000 /helloworld
 
