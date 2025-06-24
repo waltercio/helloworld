@@ -11,11 +11,6 @@ WORKDIR /helloworld
 # Copia os arquivos da aplicação
 COPY . .
 
-#remove target and its subfolders/files
-RUN rm -f /helloworld/target/classes/application.properties
-RUN rm -rf /helloworld/target/classes
-RUN rm -rf /helloworld/target
-
 # Ajusta permissões para permitir escrita por qualquer usuário do grupo 0 (OpenShift roda como random UID no grupo 0)
 RUN chgrp -R 0 /helloworld && \
     chmod -R g+rwX /helloworld
