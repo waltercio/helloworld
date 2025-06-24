@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM eclipse-temurin:17-jdk-alpine
 
 RUN apk add --update wget bash libc6-compat \
 	&& apk add maven \
