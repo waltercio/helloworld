@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM eclipse-temurin:17-jdk-alpine
 
 RUN apk add --update wget bash libc6-compat \
 	&& apk add maven \
@@ -8,21 +8,15 @@ RUN apk add --update wget bash libc6-compat \
 	
 WORKDIR /helloworld
 
-# Copia os arquivos da aplicação
-COPY . .
+# Do NOT copy everything
+COPY pom.xml .
+COPY src ./src
+COPY entrypoint.sh .
 
-# Ajusta permissões para permitir escrita por qualquer usuário do grupo 0 (OpenShift roda como random UID no grupo 0)
-RUN chgrp -R 0 /helloworld && \
+RUN mkdir -p /helloworld/target && \
+    chgrp -R 0 /helloworld && \
     chmod -R g+rwX /helloworld
 
-# Define diretório HOME para o Maven
-ENV HOME=/tmp
+ENV MAVEN_OPTS="-Dmaven.repo.local=/tmp/.m2/repository"
 
-# Executa o build do Maven usando repositório local temporário
-RUN mvn -Dmaven.repo.local=/tmp/.m2/repository clean install
-
-# Permissão para o script de entrada
 RUN chmod +x entrypoint.sh
-
-# Entrypoint do container
-ENTRYPOINT ["./entrypoint.sh"]
