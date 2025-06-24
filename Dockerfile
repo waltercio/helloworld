@@ -19,7 +19,7 @@ RUN chmod -R u+w /helloworld/target
 
 RUN chmod -R u+w /helloworld/target/classes
 
-RUN chmod -R u+w /helloworld/src/main/resources/application.properties
+RUN chmod -R u+w /helloworld/target/classes/application.properties
 
 RUN chown -R 1000650000 /helloworld
 
@@ -27,7 +27,7 @@ RUN chown -R 1000650000 /helloworld/target
 
 RUN chown -R 1000650000 /helloworld/target/classes
 
-RUN chown -R 1000650000 /helloworld/src/main/resources/application.properties
+RUN chown -R 1000650000 /helloworld/target/classes/application.properties
 
 ENV HOME=/tmp
 
